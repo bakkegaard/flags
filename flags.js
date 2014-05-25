@@ -20,7 +20,9 @@ Array.prototype.shuffle= function(factor){
 		arr[j]=temp;
 	}
 	return arr;
-
+}
+Array.prototype.delete= function(index){
+	this.splice(index,1);	
 }
 
 var flags=[
