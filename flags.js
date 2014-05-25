@@ -61,7 +61,7 @@ $(function(){
 
 
 function reset(){
-	alert('You did it! You had '+mistakes+' mistakes. \n Play Again?');
+	alert('You did it! \n '+flags.length+' flags, and you had '+mistakes+' mistakes. \n Play Again?');
 	current=0;
 	mistakes=0;
 	streak=0;
@@ -82,6 +82,7 @@ function next(){
 	$('#info').empty();
 	$('#info').append('Mistakes: '+mistakes+', streak: '+streak+'<br>');
 	$('#pic').attr("src",random_flags[current][2]);
+	$('#land').focus();
 }
 
 function guess(){
