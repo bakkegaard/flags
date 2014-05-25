@@ -5,6 +5,11 @@ Array.prototype.copy= function(){
 	}
 	return arr;
 }
+
+Array.prototype.clone= function(){
+	return this.slice(0);
+}
+
 Array.prototype.shuffle= function(factor){
 	var arr= this.copy();
 	var length= this.length;
@@ -21,6 +26,7 @@ Array.prototype.shuffle= function(factor){
 	}
 	return arr;
 }
+
 Array.prototype.delete= function(index){
 	this.splice(index,1);	
 }
@@ -33,12 +39,17 @@ var flags=[
 	['Angola','Luanda','https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg']
 ];
 	var current=0;
-	var score=0;
+	var mistakes=0;
 	var streak=0;
 	var first=true;
 	var random_flags;
+
+function getRandom(i){
+		return (Math.floor(Math.random()*Math.pow(2,32))) % i;
+}
+
 $(function(){
-	random_flags= flags.shuffle(1);
+	random_flags= flags.clone();
 	next();
 	$("input").keyup(function(event){
 		if(event.keyCode == 13){
@@ -50,24 +61,26 @@ $(function(){
 
 
 function reset(){
+	alert('You did it! You had '+mistakes+' mistakes. \n Play Again?');
 	current=0;
-	score=0;
+	mistakes=0;
 	streak=0;
 	first=true;
-	random_flags= flags.shuffle(1);
+	random_flags= flags.clone();
 }
 
 function next(){
-	if(!first) current++;
-	first=false;
+
+
+	current= getRandom(random_flags.length);
 	
-	if(current==random_flags.length){
+	if(random_flags.length==0){
 		reset();
 	}
 	$('#land').val('');
 	$('#capital').val('');
 	$('#info').empty();
-	$('#info').append('Score: '+score+', streak: '+streak+'<br>');
+	$('#info').append('Mistakes: '+mistakes+', streak: '+streak+'<br>');
 	$('#pic').attr("src",random_flags[current][2]);
 }
 
@@ -84,7 +97,7 @@ function guess(){
 	var response;
 	if(land_ok && capital_ok){
 		response="You are Correct!";
-		score++;
+		random_flags.delete(current);
 		streak++;
 	}
 	else{
@@ -98,10 +111,12 @@ function guess(){
 			response= "It's all just wrong..."
 		}
 		streak=0;
+		mistakes++;
 	}
+
 	$('#info').append(response)
 		.append('<br> Land: '+land_correct)
 		.append('<br> Capital: '+capital_correct);
 	
-	setTimeout(function(){next()},2000);
+	setTimeout(function(){next()},3000);
 }
