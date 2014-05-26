@@ -1,11 +1,3 @@
-Array.prototype.copy= function(){
-	var arr= [];	
-	for(var i=0;i<this.length;i++){
-		arr.push(this[i]);	
-	}
-	return arr;
-}
-
 Array.prototype.clone= function(){
 	return this.slice(0);
 }
