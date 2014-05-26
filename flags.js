@@ -1,11 +1,3 @@
-Array.prototype.clone= function(){
-	return this.slice(0);
-}
-
-Array.prototype.delete= function(index){
-	this.splice(index,1);	
-}
-
 var flags=[
 	['Afghanistan','kabul','http://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Afghanistan.svg'],
 	['Albanien','Tirana','http://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg'],
@@ -14,15 +6,6 @@ var flags=[
 	['Angola','Luanda','https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg'],
 	['Antigua and Barbuda','Saint John\'s','https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg']
 ];
-	var current=0;
-	var mistakes=0;
-	var streak=0;
-	var first=true;
-	var random_flags;
-
-function getRandom(i){
-		return (Math.floor(Math.random()*Math.pow(2,32))) % i;
-}
 
 $(function(){
 	random_flags= flags.clone();
@@ -34,7 +17,23 @@ $(function(){
 	});
 });
 
+Array.prototype.clone= function(){
+	return this.slice(0);
+}
 
+Array.prototype.delete= function(index){
+	this.splice(index,1);	
+}
+
+var current=0;
+var mistakes=0;
+var streak=0;
+var first=true;
+var random_flags;
+
+function getRandom(i){
+		return (Math.floor(Math.random()*Math.pow(2,32))) % i;
+}
 
 function reset(){
 	alert('You did it! \n '+flags.length+' flags, and you had '+mistakes+' mistakes. \n Play Again?');
@@ -46,7 +45,6 @@ function reset(){
 }
 
 function next(){
-
 
 	current= getRandom(random_flags.length);
 	
