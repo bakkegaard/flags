@@ -10,23 +10,6 @@ Array.prototype.clone= function(){
 	return this.slice(0);
 }
 
-Array.prototype.shuffle= function(factor){
-	var arr= this.copy();
-	var length= this.length;
-	getRand= function(){
-		return (Math.floor(Math.random()*Math.pow(2,32))) % length;
-	}
-	for(var i=0;i<this.length*factor;i++){
-		var i= getRand();
-		var j= getRand();
-
-		var temp= arr[i];
-		arr[i]=arr[j];
-		arr[j]=temp;
-	}
-	return arr;
-}
-
 Array.prototype.delete= function(index){
 	this.splice(index,1);	
 }
