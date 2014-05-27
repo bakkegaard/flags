@@ -51,7 +51,7 @@ function getRandom(i){
 $(function(){
 	random_flags= flags.clone();
 	next();
-	$("input").keyup(function(event){
+	$("input").keydown(function(event){
 		if(event.keyCode == 13){
 			guess();
 		}
@@ -94,29 +94,21 @@ function guess(){
 	var land_ok= (land_guess===land_correct.toLowerCase());
 	var capital_ok=(capital_guess===capital_correct.toLowerCase());
 
-	var response;
 	if(land_ok && capital_ok){
-		response="You are Correct!";
 		random_flags.delete(current);
 		streak++;
 	}
 	else{
-		if(land_ok){
-			response="Land is correct, capital is not...";
+		var response= "WRONG!\n";
+		if(!land_ok){
+			response+="Land is "+land_correct+"\n";
 		}
-		else if(capital_ok){
-			response="Capital is correct, land is not...";	
-		}
-		else{
-			response= "It's all just wrong..."
+		if(!capital_ok){
+			response+="Capital is "+capital_correct;	
 		}
 		streak=0;
 		mistakes++;
+		alert(response);
 	}
-
-	$('#info').append(response)
-		.append('<br> Land: '+land_correct)
-		.append('<br> Capital: '+capital_correct);
-	
-	setTimeout(function(){next()},3000);
+	next();
 }
