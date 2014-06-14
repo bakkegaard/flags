@@ -21,15 +21,17 @@ var flags=[
 	['Bosnien og Hercegovina','Sarajevo','https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg']
 ];
 
-$(function(){
+window.onload=function(){
 	random_flags= flags.clone();
 	next();
-	$("input").keydown(function(event){
-		if(event.keyCode == 13){
-			guess();
-		}
-	});
-});
+	var inputs= document.getElementsByTagName("input");
+	for(var i=0;i<inputs.length;i++){
+		inputs[i].addEventListener("keydown",function(e){
+			if(e.keyCode==13) guess();
+		},
+		false)
+	}
+};
 
 Array.prototype.clone= function(){
 	return this.slice(0);
