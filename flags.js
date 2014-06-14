@@ -5,7 +5,20 @@ var flags=[
 	['Andorra','Andorra la Vella','https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Andorra.svg'],
 	['Angola','Luanda','https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg'],
 	['Antigua og Barbuda','Saint John\'s','https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg'],
-	['Argentina','Buenos Aires','https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg']
+	['Argentina','Buenos Aires','https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg'],
+	['Armenien','Jerevan','https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg'],
+	['Aserbajdsjan','Baku','https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg'],
+	['Australien','Canberra','https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg'],
+	['Bahamas','Nassau','https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg'],
+	['Bahrain','Manama','http://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg'],
+	['Bangladesh','Dhaka','https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg'],
+	['Barbados','Bridgetown','https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg'],
+	['Belgien','Bruxelles','https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Belgium.svg'],
+	['Belize','Belmopan','https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg'],
+	['Benin','Porto-Novo','https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg'],
+	['Bhutan','Thimphu','https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg'],
+	['Bolivia','Sucre','https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg'],
+	['Bosnien og Hercegovina','Sarajevo','https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg']
 ];
 
 $(function(){
