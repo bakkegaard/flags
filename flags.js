@@ -22,6 +22,23 @@ var flags=[
 	['Bosnien og Hercegovina','Sarajevo','https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg']
 ];
 
+
+Array.prototype.clone= function(){
+	return this.slice(0);
+}
+
+Array.prototype.delete= function(index){
+	this.splice(index,1);	
+}
+
+var current=0,
+	mistakes=0,
+	streak=0,
+	first=true,
+	random_flags,
+	current_flags;
+
+
 window.onload=function(){
 	current_flags= flags.clone();
 	random_flags= current_flags;
@@ -36,20 +53,6 @@ window.onload=function(){
 	document.getElementById("latest10").onclick=function(){setLatest10()};
 	document.getElementById("all").onclick=function(){setAll()};
 };
-
-Array.prototype.clone= function(){
-	return this.slice(0);
-}
-
-Array.prototype.delete= function(index){
-	this.splice(index,1);	
-}
-
-var current=0;
-var mistakes=0;
-var streak=0;
-var first=true;
-var random_flags;
 
 function getRandom(i){
 		return (Math.floor(Math.random()*Math.pow(2,32))) % i;
