@@ -22,7 +22,8 @@ var flags=[
 ];
 
 window.onload=function(){
-	random_flags= flags.clone();
+	current_flags= flags.clone();
+	random_flags= current_flags;
 	next();
 	var inputs= document.getElementsByTagName("input");
 	for(var i=0;i<inputs.length;i++){
@@ -31,6 +32,8 @@ window.onload=function(){
 		},
 		false)
 	}
+	document.getElementById("latest10").onclick=function(){setLatest10()};
+	document.getElementById("all").onclick=function(){setAll()};
 };
 
 Array.prototype.clone= function(){
@@ -51,13 +54,27 @@ function getRandom(i){
 		return (Math.floor(Math.random()*Math.pow(2,32))) % i;
 }
 
+function setLatest10(){
+	current_flags= flags.clone().splice(flags.length-10);
+	reset();
+}
+function setAll(){
+	current_flags=flags.clone();
+	reset();
+}
+
+function end(){
+	alert('You did it! \n '+current_flags.length+' flags, and you had '+mistakes+' mistakes. \n Play Again?');
+	reset();
+}
+
 function reset(){
-	alert('You did it! \n '+flags.length+' flags, and you had '+mistakes+' mistakes. \n Play Again?');
 	current=0;
 	mistakes=0;
 	streak=0;
 	first=true;
-	random_flags= flags.clone();
+	random_flags= current_flags.clone();
+	next();
 }
 
 function next(){
@@ -65,7 +82,7 @@ function next(){
 	current= getRandom(random_flags.length);
 	
 	if(random_flags.length==0){
-		reset();
+		end();
 	}
 	$('#land').val('');
 	$('#capital').val('');
