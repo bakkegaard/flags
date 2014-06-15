@@ -6,18 +6,36 @@ var flags=[
 	['Andorra','Andorra la Vella','https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Andorra.svg'],
 	['Angola','Luanda','https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg'],
 	['Antigua og Barbuda','Saint John\'s','https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg'],
-	['Argentina','Buenos Aires','https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg']
+	['Argentina','Buenos Aires','https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg'],
+	['Armenien','Jerevan','https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg'],
+	['Aserbajdsjan','Baku','https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg'],
+	['Australien','Canberra','https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg'],
+	['Bahamas','Nassau','https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg'],
+	['Bahrain','Manama','http://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg'],
+	['Bangladesh','Dhaka','https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg'],
+	['Barbados','Bridgetown','https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg'],
+	['Belgien','Bruxelles','https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Belgium.svg'],
+	['Belize','Belmopan','https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg'],
+	['Benin','Porto-Novo','https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg'],
+	['Bhutan','Thimphu','https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg'],
+	['Bolivia','Sucre','https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg'],
+	['Bosnien og Hercegovina','Sarajevo','https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg']
 ];
 
-$(function(){
-	random_flags= flags.clone();
+window.onload=function(){
+	current_flags= flags.clone();
+	random_flags= current_flags;
 	next();
-	$("input").keydown(function(event){
-		if(event.keyCode == 13){
-			guess();
-		}
-	});
-});
+	var inputs= document.getElementsByTagName("input");
+	for(var i=0;i<inputs.length;i++){
+		inputs[i].addEventListener("keydown",function(e){
+			if(e.keyCode==13) guess();
+		},
+		false)
+	}
+	document.getElementById("latest10").onclick=function(){setLatest10()};
+	document.getElementById("all").onclick=function(){setAll()};
+};
 
 Array.prototype.clone= function(){
 	return this.slice(0);
@@ -37,13 +55,27 @@ function getRandom(i){
 		return (Math.floor(Math.random()*Math.pow(2,32))) % i;
 }
 
+function setLatest10(){
+	current_flags= flags.clone().splice(flags.length-10);
+	reset();
+}
+function setAll(){
+	current_flags=flags.clone();
+	reset();
+}
+
+function end(){
+	alert('You did it! \n '+current_flags.length+' flags, and you had '+mistakes+' mistakes. \n Play Again?');
+	reset();
+}
+
 function reset(){
-	alert('You did it! \n '+flags.length+' flags, and you had '+mistakes+' mistakes. \n Play Again?');
 	current=0;
 	mistakes=0;
 	streak=0;
 	first=true;
-	random_flags= flags.clone();
+	random_flags= current_flags.clone();
+	next();
 }
 
 function next(){
@@ -51,7 +83,7 @@ function next(){
 	current= getRandom(random_flags.length);
 	
 	if(random_flags.length==0){
-		reset();
+		end();
 	}
 	$('#land').val('');
 	$('#capital').val('');
