@@ -1,7 +1,6 @@
 "use strict";
 /*
  * TODO:
- * make black frame around flags (Bulgarien)
  */
 var flags=[
 	['Afghanistan','kabul','http://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Afghanistan.svg'],
