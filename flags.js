@@ -1,7 +1,6 @@
 "use strict";
 /*
  * TODO:
- * Remove rest of the jquery code
  * make black frame around flags (Bulgarien)
  */
 var flags=[
@@ -98,6 +97,7 @@ function reset(){
 	next();
 }
 
+
 function next(){
 
 	current= getRandom(random_flags.length);
@@ -105,17 +105,17 @@ function next(){
 	if(random_flags.length==0){
 		end();
 	}
-	$('#land').val('');
-	$('#capital').val('');
-	$('#info').empty();
-	$('#info').append('Mistakes: '+mistakes+', streak: '+streak+'<br>');
-	$('#pic').attr("src",random_flags[current][2]);
-	$('#land').focus();
+	document.getElementById('land').value='';
+	document.getElementById('capital').value='';
+	document.getElementById('info').innerHTML='';
+	document.getElementById('info').innerHTML= 'Mistakes: '+mistakes+', streak: '+streak+'<br>';
+	document.getElementById('pic').setAttribute("src",random_flags[current][2]);
+	document.getElementById('land').focus();
 }
 
 function guess(){
-	var land_guess= $('#land').val().toLowerCase().trim();
-	var capital_guess= $('#capital').val().toLowerCase().trim();
+	var land_guess= document.getElementById('land').value.toLowerCase().trim();
+	var capital_guess= document.getElementById('capital').value.toLowerCase().trim();
 
 	var land_correct = random_flags[current][0];
 	var capital_correct= random_flags[current][1];
