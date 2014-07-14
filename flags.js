@@ -55,20 +55,6 @@ var current=0,
 	current_flags;
 
 
-window.onload=function(){
-	current_flags= flags.clone();
-	random_flags= current_flags;
-	next();
-	var inputs= document.getElementsByTagName("input");
-	for(var i=0;i<inputs.length;i++){
-		inputs[i].addEventListener("keydown",function(e){
-			if(e.keyCode==13) guess();
-		},
-		false)
-	}
-	document.getElementById("latest10").onclick=function(){setLatest10()};
-	document.getElementById("all").onclick=function(){setAll()};
-};
 
 function getRandom(i){
 		return (Math.floor(Math.random()*Math.pow(2,32))) % i;

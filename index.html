@@ -2,6 +2,23 @@
 	<head>
 		<title>Flags of the world</title>
 		<script src="flags.js"></script>
+		<script>
+
+		window.onload=function(){
+			current_flags= flags.clone();
+			random_flags= current_flags;
+			next();
+			var inputs= document.getElementsByTagName("input");
+			for(var i=0;i<inputs.length;i++){
+				inputs[i].addEventListener("keydown",function(e){
+					if(e.keyCode==13) guess();
+				},
+				false)
+			}
+			document.getElementById("latest10").onclick=function(){setLatest10()};
+			document.getElementById("all").onclick=function(){setAll()};
+		};
+		</script>
 	</head>
 
 	<body>
