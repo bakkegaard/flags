@@ -24,7 +24,19 @@ var flags=[
 	['Benin','Porto-Novo','https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg'],
 	['Bhutan','Thimphu','https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg'],
 	['Bolivia','Sucre','https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg'],
-	['Bosnien og Hercegovina','Sarajevo','https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg']
+	['Bosnien og Hercegovina','Sarajevo','https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg'],
+	['Botswana','Gaborone','https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg'],
+	['Brasilien','Brasilia','https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg'],
+	['Brunei','Bandar Seri Begawan','https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Brunei.svg'],
+	['Bulgarien','Sofia','https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg'],
+	['Burkina Faso','Ouagadougou','https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Burkina_Faso.svg'],
+	['Burundi','Bujumbura','https://upload.wikimedia.org/wikipedia/commons/5/50/Flag_of_Burundi.svg'],
+	['Cambodja','Phnom Penh','https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg'],
+	['Cameroun','Yaoundé','https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg'],
+	['Canada','Ottawa','https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg'],
+	['Centralafrika','Bangui','https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_the_Central_African_Republic.svg'],
+	['Chile','Santiago','https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg'],
+	['Colombia','Bogotá','https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg']
 ];
 
 
