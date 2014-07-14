@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>List of flags</title>
+		<script src='flags.js'></script>
+		<script>
+			var table= '';	
+				table+= '<table>\n';
+				table+= '<tr>';
+				table+= '<td>Country</td>';
+				table+= '<td>Capital</td>';
+				table+= '<td>Flag</td>';
+				table+='</tr>';
+
+
+			function row(s){
+				var temp='';
+				for(var i=0;i<arguments.length;i++){
+					temp+='<td>' + arguments[i] + '</td>';
+				}
+				return temp;
+			}
+
+			for(var i=0;i<flags.length;i++){
+				table+= '<tr>';
+				table+=row(flags[i][0],flags[i][1],'<img style="height:50px" src="'+flags[i][2]+'"/>');
+				table+='</tr>';
+			}
+
+			table+='</table>';
+
+		window.onload=function(){
+			document.body.innerHTML=table;
+		}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
